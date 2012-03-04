@@ -13,6 +13,21 @@ underdocumented, and ignores some ideas of the original paper (i.e. I
 do away with psuedocounts entirely). That said, it works pretty well
 (even though it's painfully slow).
 
+## What's the point?
+
+Well, in addition to learning about Gibbs sampling in the context of
+motif finding, I'd like to write an R package (maybe worthy of
+Bioconductor) that allows *any* general motif finder implemented as C
+and R functions to be used for a variety of problems. My package would
+include a toy motif finder, but handle setting up the sequences
+upstream of co-expressed genes to be processed through a given motif
+finder. Currently, motif finders impementations are scattered: written
+in different languages, written with different interfaces, on the web,
+standalone etc. It would be splendid if there was a common interface
+(i.e. this package idea) that many motif finders can be called from,
+output compared, data on found motifs gathered, etc. That would be,
+well, damn cool.
+
 ## How does it work?
 
 I'll explain this soon.

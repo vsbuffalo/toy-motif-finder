@@ -66,7 +66,7 @@ scoreSegment <- function(segment, pfm, background) {
 }
 
 samplingStep <- function(sequence, pfm, background, width=8) {
-  positions <- seq_len(nchar(sequence[1]) - width + 1)
+  positions <- seq_len(nchar(sequence) - width + 1)
   segments <- sapply(positions, function(i) {
     substr(sequence, i, i + width - 1)
   })
@@ -115,10 +115,10 @@ while (!converge && iter <= max.iter) {
   ## PWM
   k <- sample(seq_along(a$sequence))
   for (i in k) {
-    s.pfm.alt <- removeFromPWM(a$sequence[k], s.pfm)
-    s.background.alt <- updateBackground(DNAStringSet(a$sequence[k]), s.background)
-    scores <- samplingStep(s[k], s.pfm.alt, s.background.alt)
-    position.probs[k, ] <- scores$norm.score
+    s.pfm.alt <- removeFromPWM(a$sequence[i], s.pfm)
+    s.background.alt <- updateBackground(DNAStringSet(a$sequence[i]), s.background)
+    scores <- samplingStep(s[i], s.pfm.alt, s.background.alt)
+    position.probs[i, ] <- scores$norm.score
   }
   iter <- iter + 1
   
